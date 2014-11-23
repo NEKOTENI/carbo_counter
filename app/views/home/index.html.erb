@@ -27,12 +27,26 @@
 	<%= text_field_tag("amout_g_10") %><br />
 	<%= submit_tag "Send" %>
 <% end %>
+<br />
+<!-- 各食材の糖質量の計算結果を表示する -->
+<p>food_name_1 の糖質量 : <%= @calc1 %>g</p> 
+<p>food_name_2 の糖質量 : <%= @calc2 %>g</p> 
+<p>food_name_3 の糖質量 : <%= @calc3 %>g</p> 
+<p>food_name_4 の糖質量 : <%= @calc4 %>g</p> 
+<p>food_name_5 の糖質量 : <%= @calc5 %>g</p> 
+<p>food_name_6 の糖質量 : <%= @calc6 %>g</p> 
+<p>food_name_7 の糖質量 : <%= @calc7 %>g</p> 
+<p>food_name_8 の糖質量 : <%= @calc8 %>g</p> 
+<p>food_name_9 の糖質量 : <%= @calc9 %>g</p> 
+<p>food_name_10 の糖質量 : <%= @calc10 %>g</p> 
+
+<!-- 全食材の糖質量の合計を表示する -->
+<p>糖質量合計 : <%= @calc_total %>g</p>
+
 
 <!-- @foodsに入ったインスタンス達の食材名と100gあたりの糖質量を表示する -->
-<% @foods.each do |food| %>
+<% @foods1.each do |food| %>
 	<%= food.name %>/
 	<%= food.carb %><br />
 <% end %>
 
-<!-- controllerで作成した@calc（計算結果）を表示する -->
-<%= @calc %>
