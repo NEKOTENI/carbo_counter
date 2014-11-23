@@ -1,0 +1,38 @@
+<h1>糖質カウンター</h1>
+
+<!-- paramsを表示する -->
+<%= @hogr %>
+
+<!-- 入力フォーム -->
+<%= form_tag('index',:method => :get) do %>
+	<%= text_field_tag("food_name_1") %>
+	<%= text_field_tag("amout_g_1") %><br />
+	<%= text_field_tag("food_name_2") %>
+	<%= text_field_tag("amout_g_2") %><br />
+	<%= text_field_tag("food_name_3") %>
+	<%= text_field_tag("amout_g_3") %><br />
+	<%= text_field_tag("food_name_4") %>
+	<%= text_field_tag("amout_g_4") %><br />
+	<%= text_field_tag("food_name_5") %>
+	<%= text_field_tag("amout_g_5") %><br />
+	<%= text_field_tag("food_name_6") %>
+	<%= text_field_tag("amout_g_6") %><br />
+	<%= text_field_tag("food_name_7") %>
+	<%= text_field_tag("amout_g_7") %><br />
+	<%= text_field_tag("food_name_8") %>
+	<%= text_field_tag("amout_g_8") %><br />
+	<%= text_field_tag("food_name_9") %>
+	<%= text_field_tag("amout_g_9") %><br />
+	<%= text_field_tag("food_name_10") %>
+	<%= text_field_tag("amout_g_10") %><br />
+	<%= submit_tag "Send" %>
+<% end %>
+
+<!-- @foodsに入ったインスタンス達の食材名と100gあたりの糖質量を表示する -->
+<% @foods.each do |food| %>
+	<%= food.name %>/
+	<%= food.carb %><br />
+<% end %>
+
+<!-- controllerで作成した@calc（計算結果）を表示する -->
+<%= @calc %>
