@@ -1,7 +1,8 @@
 <h1>糖質カウンター</h1>
 
-<!-- paramsを表示する -->
-<%= @hogr %>
+<!-- paramsを表示する
+<%= @hogr %> 
+-->
 
 <!-- 入力フォーム -->
 <%= form_tag('index',:method => :get) do %>
@@ -65,9 +66,9 @@
 <p>糖質量合計 : <%= @calc_total %>g</p>
 
 
-<!-- @foodsに入ったインスタンス達の食材名と100gあたりの糖質量を表示する -->
+<!-- @foodsに入ったインスタンス達の食材名と100gあたりの糖質量を表示する 
 <% @foods1.each do |food| %>
 	<%= food.name %>/
 	<%= food.carb %><br />
 <% end %>
-
+-->
