@@ -6,39 +6,60 @@
 <!-- 入力フォーム -->
 <%= form_tag('index',:method => :get) do %>
 	<%= text_field_tag("food_name_1") %>
-	<%= text_field_tag("amout_g_1") %><br />
+	<%= text_field_tag("amount_g_1") %><br />
 	<%= text_field_tag("food_name_2") %>
-	<%= text_field_tag("amout_g_2") %><br />
+	<%= text_field_tag("amount_g_2") %><br />
 	<%= text_field_tag("food_name_3") %>
-	<%= text_field_tag("amout_g_3") %><br />
+	<%= text_field_tag("amount_g_3") %><br />
 	<%= text_field_tag("food_name_4") %>
-	<%= text_field_tag("amout_g_4") %><br />
+	<%= text_field_tag("amount_g_4") %><br />
 	<%= text_field_tag("food_name_5") %>
-	<%= text_field_tag("amout_g_5") %><br />
+	<%= text_field_tag("amount_g_5") %><br />
 	<%= text_field_tag("food_name_6") %>
-	<%= text_field_tag("amout_g_6") %><br />
+	<%= text_field_tag("amount_g_6") %><br />
 	<%= text_field_tag("food_name_7") %>
-	<%= text_field_tag("amout_g_7") %><br />
+	<%= text_field_tag("amount_g_7") %><br />
 	<%= text_field_tag("food_name_8") %>
-	<%= text_field_tag("amout_g_8") %><br />
+	<%= text_field_tag("amount_g_8") %><br />
 	<%= text_field_tag("food_name_9") %>
-	<%= text_field_tag("amout_g_9") %><br />
+	<%= text_field_tag("amount_g_9") %><br />
 	<%= text_field_tag("food_name_10") %>
-	<%= text_field_tag("amout_g_10") %><br />
+	<%= text_field_tag("amount_g_10") %><br />
 	<%= submit_tag "Send" %>
 <% end %>
 <br />
+
 <!-- 各食材の糖質量の計算結果を表示する -->
-<p>food_name_1 の糖質量 : <%= @calc1 %>g</p> 
-<p>food_name_2 の糖質量 : <%= @calc2 %>g</p> 
-<p>food_name_3 の糖質量 : <%= @calc3 %>g</p> 
-<p>food_name_4 の糖質量 : <%= @calc4 %>g</p> 
-<p>food_name_5 の糖質量 : <%= @calc5 %>g</p> 
-<p>food_name_6 の糖質量 : <%= @calc6 %>g</p> 
-<p>food_name_7 の糖質量 : <%= @calc7 %>g</p> 
-<p>food_name_8 の糖質量 : <%= @calc8 %>g</p> 
-<p>food_name_9 の糖質量 : <%= @calc9 %>g</p> 
-<p>food_name_10 の糖質量 : <%= @calc10 %>g</p> 
+<% if @chosen_food1.present? %>
+<%= @chosen_food1.name %> <%= params["amount_g_1"] %>g の糖質量 : <%= @calc1 %>g
+<% end %><br />
+<% if @chosen_food2.present? %>
+<%= @chosen_food2.name %> <%= params["amount_g_2"] %>g の糖質量 : <%= @calc2 %>g
+<% end %><br />
+<% if @chosen_food3.present? %>
+<%= @chosen_food3.name %> <%= params["amount_g_3"] %>g の糖質量 : <%= @calc3 %>g
+<% end %><br />
+<% if @chosen_food4.present? %>
+<%= @chosen_food4.name %> <%= params["amount_g_4"] %>g の糖質量 : <%= @calc4 %>g
+<% end %><br />
+<% if @chosen_food5.present? %>
+<%= @chosen_food5.name %> <%= params["amount_g_5"] %>g の糖質量 : <%= @calc5 %>g
+<% end %><br />
+<% if @chosen_food6.present? %>
+<%= @chosen_food6.name %> <%= params["amount_g_6"] %>g の糖質量 : <%= @calc6 %>g
+<% end %><br />
+<% if @chosen_food7.present? %>
+<%= @chosen_food7.name %> <%= params["amount_g_7"] %>g の糖質量 : <%= @calc7 %>g
+<% end %><br />
+<% if @chosen_food8.present? %>
+<%= @chosen_food8.name %> <%= params["amount_g_8"] %>g の糖質量 : <%= @calc8 %>g
+<% end %><br />
+<% if @chosen_food9.present? %>
+<%= @chosen_food9.name %> <%= params["amount_g_9"] %>g の糖質量 : <%= @calc9 %>g
+<% end %><br />
+<% if @chosen_food10.present? %>
+<%= @chosen_food10.name %> <%= params["amount_g_10"] %>g の糖質量 : <%= @calc10 %>g
+<% end %><br />
 
 <!-- 全食材の糖質量の合計を表示する -->
 <p>糖質量合計 : <%= @calc_total %>g</p>
