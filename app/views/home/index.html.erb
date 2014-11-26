@@ -1,74 +1,30 @@
 <h1>糖質カウンター</h1>
 
-<!-- paramsを表示する
-<%= @hogr %> 
--->
+<%#= @hogr %>
 
 <!-- 入力フォーム -->
 <%= form_tag('index',:method => :get) do %>
-	<%= text_field_tag("food_name_1") %>
-	<%= text_field_tag("amount_g_1") %><br />
-	<%= text_field_tag("food_name_2") %>
-	<%= text_field_tag("amount_g_2") %><br />
-	<%= text_field_tag("food_name_3") %>
-	<%= text_field_tag("amount_g_3") %><br />
-	<%= text_field_tag("food_name_4") %>
-	<%= text_field_tag("amount_g_4") %><br />
-	<%= text_field_tag("food_name_5") %>
-	<%= text_field_tag("amount_g_5") %><br />
-	<%= text_field_tag("food_name_6") %>
-	<%= text_field_tag("amount_g_6") %><br />
-	<%= text_field_tag("food_name_7") %>
-	<%= text_field_tag("amount_g_7") %><br />
-	<%= text_field_tag("food_name_8") %>
-	<%= text_field_tag("amount_g_8") %><br />
-	<%= text_field_tag("food_name_9") %>
-	<%= text_field_tag("amount_g_9") %><br />
-	<%= text_field_tag("food_name_10") %>
-	<%= text_field_tag("amount_g_10") %><br />
-	<%= submit_tag "Send" %>
+	<% 10.times.each do |i| %>
+		食品名
+		<%= select_tag "food_id_#{i}", options_for_select(@foods_for_select) %>
+		量（g）
+		<%= text_field_tag("amount_g_#{i}") %><br />
+	<% end %>
+
+	<%= submit_tag "計算する" %>
 <% end %>
 <br />
 
 <!-- 各食材の糖質量の計算結果を表示する -->
-<% if @chosen_food1.present? %>
-<%= @chosen_food1.name %> <%= params["amount_g_1"] %>g の糖質量 : <%= @calc1 %>g<br />
+<% 10.times.each do |i| %>
+	<% if @foods[i] %>
+		<%= @foods[i][:food].name %> <%= @foods[i][:gram] %>g の糖質量 : <%= @foods[i][:carb] %>g<br />
+	<% end %>
 <% end %>
-<% if @chosen_food2.present? %>
-<%= @chosen_food2.name %> <%= params["amount_g_2"] %>g の糖質量 : <%= @calc2 %>g<br />
-<% end %>
-<% if @chosen_food3.present? %>
-<%= @chosen_food3.name %> <%= params["amount_g_3"] %>g の糖質量 : <%= @calc3 %>g<br />
-<% end %>
-<% if @chosen_food4.present? %>
-<%= @chosen_food4.name %> <%= params["amount_g_4"] %>g の糖質量 : <%= @calc4 %>g<br />
-<% end %>
-<% if @chosen_food5.present? %>
-<%= @chosen_food5.name %> <%= params["amount_g_5"] %>g の糖質量 : <%= @calc5 %>g<br />
-<% end %>
-<% if @chosen_food6.present? %>
-<%= @chosen_food6.name %> <%= params["amount_g_6"] %>g の糖質量 : <%= @calc6 %>g<br />
-<% end %>
-<% if @chosen_food7.present? %>
-<%= @chosen_food7.name %> <%= params["amount_g_7"] %>g の糖質量 : <%= @calc7 %>g<br />
-<% end %>
-<% if @chosen_food8.present? %>
-<%= @chosen_food8.name %> <%= params["amount_g_8"] %>g の糖質量 : <%= @calc8 %>g<br />
-<% end %>
-<% if @chosen_food9.present? %>
-<%= @chosen_food9.name %> <%= params["amount_g_9"] %>g の糖質量 : <%= @calc9 %>g<br />
-<% end %>
-<% if @chosen_food10.present? %>
-<%= @chosen_food10.name %> <%= params["amount_g_10"] %>g の糖質量 : <%= @calc10 %>g<br />
-<% end %>
+
 
 <!-- 全食材の糖質量の合計を表示する -->
 <p>糖質量合計 : <%= @calc_total %>g</p>
 
 
-<!-- @foodsに入ったインスタンス達の食材名と100gあたりの糖質量を表示する 
-<% @foods1.each do |food| %>
-	<%= food.name %>/
-	<%= food.carb %><br />
-<% end %>
--->
+

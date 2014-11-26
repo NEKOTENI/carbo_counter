@@ -5,3 +5,16 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+foods = [
+	{ name: "", carb: },
+	{ name: "", carb: },
+	{ name: "", carb: },
+	{ name: "", carb: },
+	{ name: "", carb: },
+	{ name: "", carb: },
+]
+
+foods.each do |food|
+	Food.create_with(carb: food[:carb]).find_or_create_by(name: food[:name])
+end
